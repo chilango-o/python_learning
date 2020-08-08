@@ -55,6 +55,14 @@ def calcBmiRange(bmi):
     if bmi > 40:
         return 'Obesse class III'
     
+def calcBmiRangeRecursive(bmi, numberRange, statusRange):
+    arraysLength = len(numberRange)
+    if arraysLength == 1:
+        return statusRange[0]
+    elif bmi >= numberRange[0] and bmi < numberRange[1]:
+            return statusRange[0]
+    else:
+        return calcBmiRangeRecursive(bmi, numberRange[1:arraysLength], statusRange[1:arraysLength])
 
 print('\nBMI calculator')
 weight = float(input('\nwhats you weight in kg? '))
