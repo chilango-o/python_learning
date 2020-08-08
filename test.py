@@ -56,7 +56,11 @@ def calcBmiRange(bmi):
         return 'Obesse class III'
     
 def calcBmiRangeRecursive(bmi, numberRange, statusRange):
+    # global originalArraysLength
     arraysLength = len(numberRange)
+    # print('\n--- Nivel de recursion: ', arraysLength - originalArraysLength, ' ---')
+    # print(numberRange)
+    # print(statusRange)
     if arraysLength == 1:
         return statusRange[0]
     elif bmi >= numberRange[0] and bmi < numberRange[1]:
