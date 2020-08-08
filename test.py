@@ -1,3 +1,7 @@
+numberRange = [0, 16, 17, 18.5, 25, 30, 35, 40]
+statusRange = ['Severe Thinness', 'Moderate Thinness', 'Mild Thinness','Normal', 'Overweigth', 'Obesse class I', 'Obesse class II', 'Obesse class III']
+originalArraysLength = len(numberRange)
+
 def calcBMI(weight, height):
     """ function to calculate the Body mass index (BMI)
 
