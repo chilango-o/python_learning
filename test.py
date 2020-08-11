@@ -1,3 +1,7 @@
+numberRange = [0, 16, 17, 18.5, 25, 30, 35, 40]
+statusRange = ['Severe Thinness', 'Moderate Thinness', 'Mild Thinness','Normal', 'Overweigth', 'Obesse class I', 'Obesse class II', 'Obesse class III']
+originalArraysLength = len(numberRange)
+
 def calcBMI(weight, height):
     """ function to calculate the Body mass index (BMI)
 
@@ -51,11 +55,25 @@ def calcBmiRange(bmi):
     if bmi > 40:
         return 'Obesse class III'
     
+def calcBmiRangeRecursive(bmi, numberRange, statusRange):
+    # global originalArraysLength
+    arraysLength = len(numberRange)
+    # print('\n--- Nivel de recursion: ', arraysLength - originalArraysLength, ' ---')
+    # print(numberRange)
+    # print(statusRange)
+    if arraysLength == 1:
+        return statusRange[0]
+    elif bmi >= numberRange[0] and bmi < numberRange[1]:
+            return statusRange[0]
+    else:
+        return calcBmiRangeRecursive(bmi, numberRange[1:arraysLength], statusRange[1:arraysLength])
 
 print('\nBMI calculator')
 weight = float(input('\nwhats you weight in kg? '))
 height = float(input('whats you height in m? '))
 bmi = calcBMI(weight, height)
 bmi_range = calcBmiRange(bmi)
+bmiRangeRecursive = calcBmiRangeRecursive(bmi, numberRange, statusRange)
 print('\nyour BMI is:', round(bmi, 1))
 print('your STATUS is:', bmi_range, '\n')
+print('your Recursive STATUS is:', bmiRangeRecursive, '\n')
